@@ -8,6 +8,8 @@ import { NavigationReducer, NavigationState } from './NavigationReducer';
 
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { UserState, UserReducer } from '../_user/UserReducer';
+import { OfferingState, OfferingReducer } from '../_forms/OfferingReducer';
 
 // Interfaces
 interface CustomWindow extends Window {
@@ -17,11 +19,15 @@ declare let window: CustomWindow;
 
 export interface StoreState {
   navigation: NavigationState;
+  user: UserState;
+  offering: OfferingState;
 }
 
 // Config
 const reducers = combineReducers<StoreState>({
-  navigation: NavigationReducer
+  navigation: NavigationReducer,
+  user: UserReducer,
+  offering: OfferingReducer
 });
 
 const persistConfig = {

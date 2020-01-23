@@ -2,20 +2,17 @@ import { routes } from './_routes';
 import { ReducerTypes } from './_Actions';
 
 export interface NavigationState {
-  isSignedIn: boolean;
   userRoute: routes;
 }
 
 export interface NavigationAction {
   type: ReducerTypes;
   payload: {
-    isSignedIn?: boolean;
     userRoute?: routes;
   };
 }
 
 const INITIAL_STATE = {
-  isSignedIn: false,
   userRoute: routes.PROFILE
 };
 
@@ -24,7 +21,7 @@ export const NavigationReducer = (
   action: NavigationAction
 ) => {
   switch (action.type) {
-    case ReducerTypes.SIGN_IN: {
+    case ReducerTypes.NAVIGATION_REDUCER: {
       return {
         ...state,
         ...action.payload

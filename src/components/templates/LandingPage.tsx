@@ -10,13 +10,22 @@ import {
 } from 'reactstrap';
 import { Fade } from 'react-awesome-reveal';
 import { connect } from 'react-redux';
-export class _LandingPage extends Component {
+import { routes } from '../../config/_routes';
+import withRouter, { WithRouterProps } from 'next/dist/client/with-router';
+import { StoreState } from '../../config/ReduxStore';
+
+interface LandingPageProps extends WithRouterProps, StoreState {}
+
+export class _LandingPage extends Component<LandingPageProps> {
+  _onClickGetStarted = () => {
+    this.props.router.push(routes.PROFILE);
+  };
   render() {
     return (
       <div>
         <div
           style={{
-            backgroundImage: 'url(/static/cover-image.jpg)',
+            backgroundImage: 'url(/static/cover.jpg)',
             backgroundPosition: 'center',
             backgroundSize: 'cover'
           }}
@@ -32,13 +41,15 @@ export class _LandingPage extends Component {
               <Row className="h-100 align-items-center">
                 <Col>
                   <Fade>
-                    <h1 className="text-center text-white display-4">
-                      Digitize your offerings and take orders automatically
+                    <h1 className="text-center text-dark display-4">
+                      Take orders automatically
                     </h1>
                   </Fade>
                   <Fade delay={500}>
                     <div className="text-center">
-                      <Button color="primary">Get started</Button>
+                      <Button onClick={this._onClickGetStarted} color="primary">
+                        Get started
+                      </Button>
                     </div>
                   </Fade>
                 </Col>
@@ -143,4 +154,6 @@ export class _LandingPage extends Component {
   }
 }
 
-export const LandingPage = connect(state => state)(_LandingPage);
+export const LandingPage = withRouter(
+  connect((state: StoreState) => state)(_LandingPage)
+);

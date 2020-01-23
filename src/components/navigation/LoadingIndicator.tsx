@@ -20,7 +20,7 @@ const _LoadingIndicator: React.FunctionComponent<LoadingScreenProps> = ({
       justifyContent: 'center'
     }}
   >
-    <Spinner size={24} color={dark ? 'secondary' : 'primary'} />
+    <Spinner size="24" color={dark ? 'secondary' : 'primary'} />
   </div>
 );
 

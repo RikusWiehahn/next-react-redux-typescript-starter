@@ -1,4 +1,6 @@
 import { NavigationAction } from './NavigationReducer';
+import { UserAction } from '../_user/UserReducer';
+import { OfferingAction } from '../_forms/OfferingReducer';
 
 export enum ServiceTypes {
   GET_USER
@@ -6,16 +8,29 @@ export enum ServiceTypes {
 
 export enum ReducerTypes {
   SIGN_IN,
-  SIGN_OUT
+  SIGN_OUT,
+  OFFERING_REDUCER,
+  NAVIGATION_REDUCER,
+  USER_REDUCER
 }
 
-export type Action = NavigationAction;
+export type Action = NavigationAction | UserAction | OfferingAction;
 
-const signInUser = (): NavigationAction => {
+const signInUser = ({
+  _id,
+  userFirstName,
+  userLastName
+}: {
+  _id: string;
+  userFirstName: string;
+  userLastName: string;
+}): UserAction => {
   return {
-    type: ReducerTypes.SIGN_IN,
+    type: ReducerTypes.USER_REDUCER,
     payload: {
-      isSignedIn: true
+      _id,
+      userFirstName,
+      userLastName
     }
   };
 };

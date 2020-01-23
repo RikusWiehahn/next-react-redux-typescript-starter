@@ -2,7 +2,6 @@ import App from 'next/app';
 import React from 'react';
 import { Provider } from 'react-redux';
 import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
 import Router from 'next/router';
 import withReduxStore, { Store } from '../config/ReduxStore';
 
@@ -35,7 +34,7 @@ class MyApp extends App<Props> {
       <div>
         <Provider store={reduxStore}>
           <PersistGate
-            loading={<LoadingIndicator fullscreen dark />}
+            loading={<LoadingIndicator fullscreen />}
             persistor={persistor}
           >
             <NavBar />

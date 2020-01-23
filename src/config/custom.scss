@@ -28,14 +28,14 @@ $green: #4bbf73 !default;
 $teal: #20c997 !default;
 $cyan: #1f9bcf !default;
 
-$primary: #4800c6 !default;
-$secondary: $white !default;
+$primary: #5f00f9 !default;
+$secondary: #06fce1 !default; //$white !default;
 $success: $green !default;
 $info: $cyan !default;
 $warning: $yellow !default;
 $danger: $red !default;
 $light: $white !default;
-$dark: $gray-800 !default;
+$dark: $gray-900 !default;
 
 $yiq-contrasted-threshold: 185 !default;
 
@@ -126,5 +126,6 @@ $breadcrumb-bg: transparent !default;
 // My changes
 
 $navbar-padding-y: 0.5rem !default;
+$navbar-default-border: 2px solid $primary !default;
 
 @import '~bootstrap/scss/bootstrap.scss';
