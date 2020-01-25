@@ -6,7 +6,7 @@ interface LoadingScreenProps {
   fullscreen?: boolean;
 }
 
-const _LoadingIndicator: React.FunctionComponent<LoadingScreenProps> = ({
+const _LoadingIndicator: React.FC<LoadingScreenProps> = ({
   dark,
   fullscreen
 }) => (
